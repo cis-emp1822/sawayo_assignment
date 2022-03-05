@@ -36,7 +36,12 @@ class UserApi {
       return simplifyGetResponse(response, data: "Users");
     } catch (e) {
       return ServerResponse(
-          status: false, code: 500, message: e.toString(), data: {});
+          status: false,
+          code: 500,
+          message: e is DioError
+              ? "Please Check Your internet Connection."
+              : "Something went wrong",
+          data: e.toString());
     }
   }
 }

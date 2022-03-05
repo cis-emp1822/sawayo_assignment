@@ -10,8 +10,11 @@ class Userview extends StatelessWidget {
       leading: CircleAvatar(
         radius: 20,
         backgroundColor: Colors.grey,
-        child:
-            Text(userData!.username.isNotEmpty ? userData!.username[0] : "?"),
+        child: Text(
+          userData!.name.isNotEmpty ? userData!.name[0] : "?",
+          style:
+              const TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
+        ),
       ),
       title: Text(userData!.name),
       subtitle: Text("${userData!.address.city}, ${userData!.address.zipcode}"),

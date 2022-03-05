@@ -5,15 +5,13 @@ class FailureScreen extends StatelessWidget {
   final String? message;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-      child: Center(
-        child: Column(
-          children: [
-            const Text("Oops"),
-            Text(message!),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text("Oops"),
+          Text(message!),
+        ],
       ),
     );
   }
