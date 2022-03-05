@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sawayo_assignment/cubits/userlisting/userlisting_cubit.dart';
 import 'package:sawayo_assignment/views/users_list.dart';
 
 void main() {
@@ -11,12 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return BlocProvider(
+      create: (context) => UserlistingCubit(),
+      child: MaterialApp(
+        title: 'Users',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const UsersList(title: 'Users'),
       ),
-      home: const UsersList(title: 'Flutter Demo Home Page'),
     );
   }
 }

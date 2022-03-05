@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:sawayo_assignment/models/server_response.dart';
 
 class UserApi {
-  final Dio? dio;
-  UserApi({this.dio});
+  final Dio? _dio;
+  UserApi(this._dio);
 
   ServerResponse simplifyGetResponse(Response response,
       {String data = "data"}) {
@@ -32,7 +32,7 @@ class UserApi {
 
   Future<ServerResponse?> fetchUsersList() async {
     try {
-      final response = await dio!.get('/users');
+      final response = await _dio!.get('/users');
       return simplifyGetResponse(response, data: "Users");
     } catch (e) {
       return ServerResponse(
